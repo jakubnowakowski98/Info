@@ -1,0 +1,45 @@
+#!/bin/bash
+i=0
+while [[ $i -le 3 ]]
+do
+xterm &
+i=$[i+1]
+done
+
+--
+
+#!/bin/bash
+files=$(find $1 -type f -name '*.xyz')
+for i in $files
+do
+if [[ ! -f $i ]]
+then
+break
+return -1
+ele
+echo $i
+fi
+done
+
+--
+
+#!/bin/bash
+if [[ $# -gt 3 ]]
+then
+echo "Za duzo argumentow"
+exit
+fi
+
+if [[ $# -lt 3 ]]
+then
+echo ""
+read choise
+case $choise in
+"a") exit ;;
+"b") touch plik ;;
+"c") cat $1 $2 $3 | tee "plik.txt" ;;
+*) echo "Wybierz" ;;
+esac
+else
+cat $1 $2 $3 >> OUTSTREAM.txt
+fi
