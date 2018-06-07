@@ -37,7 +37,7 @@ case $choise in
 "a") exit ;;
 "b") touch plik ;;
 "c") cat $1 $2 $3 | tee "plik.txt" ;;
-*) echo "Wybierz" ;;
+*) echo "Wybierz a/b/c" ;;
 esac
 else
 cat $1 $2 $3 >> OUTSTREAM.txt
