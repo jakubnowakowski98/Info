@@ -32,7 +32,6 @@ fi
 
 if [[ $# -lt 3 ]]
 then
-echo ""
 read choise
 case $choise in
 "a") exit ;;
