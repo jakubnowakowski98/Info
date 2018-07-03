@@ -75,15 +75,15 @@ private:
     int k;
     vector<Piechota> tab;
 public:
-    Armia(int il, int h=1)
+    Armia(int il=100, int h=1)
     :Piechota(il){
         k=h;
         for(int i=0; i<k; i++)
-        tab.push_back(il);
+        tab.push_back(il+i);
     }
     int licznik=tab.size();
     ~Armia(){}
-    Armia &operator[](vector<Piechota> &tab)
+    Piechota &operator[](vector<Piechota> &tab)
     {
         int n;
         cin>>n;
@@ -92,12 +92,20 @@ public:
         else
             cout<<"za duza liczba"<<endl;
     }
+    //c
+    void funkcja()
+    {
+        for(int i=0; i<k; i++)
+            cout<<"Liczebnosc "<<i+1<<" oddzialu wynosi: "<<tab[i]<<endl;
+    }
 
 };
 
 int main()
 {
     Piechota o1=Piechota(120, 15.5);
-    Armia a1=Armia();
+    //c
+    Armia a1=Armia(122,2);
+    a1.funkcja();
     return 0;
 }
