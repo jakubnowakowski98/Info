@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <vector>
 
 using namespace std;
 
@@ -8,7 +9,6 @@ private:
     int ilosc;
     float zap;
 public:
-    friend class Dupa;
     Piechota(int il=100, float zapo=5.0)
     {
         ilosc=il;
@@ -59,19 +59,45 @@ public:
         n_zap2=zap/x;
         return n_zap2;
     }
+    friend ostream &operator<<(ostream &wyjscie, const Piechota &p);
 };
 
-class Dupa{
-public:
-    friend class Piechota;
-void operator<<(Piechota)
+ostream &operator<<(ostream &wyjscie, const Piechota &p)
 {
-    cout<<"ILOSC ZOLNIERZY: "<<ilosc<<", ZAPOTRZEBOWANIE NA GORZALKE: "<<zap<<endl;
+    cout<<"ILOSC ZOLNIERZY: "<<p.ilosc<<", ZAPOTRZEBOWANIE NA GORZALKE: "<<p.zap<<endl;
 }
+
+
+//b
+class Armia :public Piechota
+{
+private:
+    int k;
+    vector<Piechota> tab;
+public:
+    Armia(int il, int h=1)
+    :Piechota(il){
+        k=h;
+        for(int i=0; i<k; i++)
+        tab.push_back(il);
+    }
+    int licznik=tab.size();
+    ~Armia(){}
+    Armia &operator[](vector<Piechota> &tab)
+    {
+        int n;
+        cin>>n;
+        if(n<=licznik)
+            return tab[n];
+        else
+            cout<<"za duza liczba"<<endl;
+    }
+
 };
 
 int main()
 {
     Piechota o1=Piechota(120, 15.5);
+    Armia a1=Armia();
     return 0;
 }
