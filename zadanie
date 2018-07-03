@@ -96,7 +96,7 @@ public:
     void funkcja()
     {
         for(int i=0; i<k; i++)
-            cout<<"Liczebnosc "<<i+1<<" oddzialu wynosi: "<<tab[i]<<endl;
+            cout<<"Dane o oddziale nr."<<i+1<<": "<<tab[i]<<endl;
     }
 
 };
